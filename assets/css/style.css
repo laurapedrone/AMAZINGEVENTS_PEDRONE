@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+/* =============================== */
+/*              Navbar             */
+/* =============================== */
+#site-navbar {
+  transition: all 0.42s ease;
+  border-bottom: 7px solid #d81b60;
+  border-radius: 0 0 30px 30px;
+}
+.img-fuid {
+  width: 200px;
+  height: 50px;
+}
+
+#site-navbar .navbar-nav .nav-item .nav-link {
+  position: relative;
+  font-size: 1em;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  width: auto;
+}
+
+.active {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: #d81b60;
+  width: auto;
+  line-height: 20pt;
+  color: #d81b60 !important;
+}
+
+#site-navbar .navbar-nav .nav-item .nav-link:hover {
+  border-bottom-style: solid;
+  border-bottom-width: 4px;
+  border-bottom-color: #d81b60;
+  width: auto;
+  line-height: 20pt;
+  color: #d81b60;
+  cursor: pointer;
+}
+/* =============================== */
+/*          Fondo                  */
+/* =============================== */
+
+.fondo_principal {
+  background-image: url(../img/foto_home.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  background-size: cover;
+  width: 100%;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 0 50px;
+}
+
+.textosubtitulo {
+  text-align: center;
+  color: whitesmoke;
+  font: bold 50px Arial, Helvetica, sans-serif;
+  text-shadow: 1px 4px rgba(0, 0, 0, 0.445);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.news-block-horizontal-content {
+  padding: 20px;
+  flex: 1;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.section-title h2 {
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 24px;
+  padding-bottom: 8px;
+  position: relative;
+  padding: 0px 0px 15px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.meta a {
+  color: #919191;
+  font-size: 16px;
+  text-decoration: none;
+}
+.news-block-horizontal-link a {
+  text-decoration: none;
+  color: black;
+}
+p {
+  line-height: 24px;
+  font-size: 14px;
+  color: #8a8a93;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+.btn-style-1 {
+  color: #333;
+  border-bottom: 1px solid #333;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.news-block-horizontal-one {
+	display: flex;
+  justify-content: space-between;  
+	width: 100%;
+}
+.news-block-horizontal-img {
+	position: relative;
+	overflow: hidden;
+	display: inline-block;
+	width: 50%;
+	margin-right: 20px;
+}
+.news-block-horizontal-img img {
+		transition: all 0.3s ease-in-out;
+}
+.sidebar{
+  background-color: #F8F9FA;
+  padding: 30px;
+}
+.sidebar-title h3{
+  font-weight: 600;
+  font-size: 30px;
+  line-height: 24px;
+  padding-bottom: 8px;
+  position: relative;
+  padding: 0px 0px 15px 0px;
+
+}
+.cat-list{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+.cat-list li a{
+    position: relative;
+    color: #84858a;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin-bottom: 1px;
+    padding: 15px 20px;
+    background-color: #ffffff;
+  
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  input[type="checkbox"] {
+    /* remove standard background appearance */
+     appearance: none;
+    /* create custom radiobutton appearance */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    padding: 6px;
+    /* background-color only for content */
+    background-clip: content-box;
+    border: 1px solid #bbbbbb;
+    background-color: #e7e6e7;
+  }
+
+  input[type="checkbox"]:checked{
+    background-color: #d81b60;
+  }
+
+/* =============================== */
+/*       Media Queries Navbar      */
+/* =============================== */
+
+/* --------- From Tablet --------- */
+
+@media screen and (min-width: 768px) {
+  .nav-link {
+    font-weight: 400 !important;
+  }
+
+  .nav-item {
+    margin-right: 0;
+  }
+}
+
+/* -------- From small PC -------- */
+
+@media screen and (min-width: 992px) {
+  #site-navbar .navbar-nav .nav-item {
+    padding: 1em 0.5em;
+    margin-right: 0;
+  }
+}
+
+/* -------- From large PC -------- */
+
+@media screen and (min-width: 1200px) {
+  #site-navbar .navbar-nav .nav-item {
+    padding: 1em;
+  }
+  .text-carousel h1 {
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .img-fuid {
+    width: 75px;
+    height: 30px;
+  }
+}
