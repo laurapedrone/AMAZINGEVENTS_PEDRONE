@@ -1,7 +1,15 @@
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
+}
+footer{
+  width: 100%;
+
+}
+main{
+  min-height:70vh;
 }
 /* =============================== */
 /*              Navbar             */
@@ -42,8 +50,7 @@
   width: auto;
   line-height: 20pt;
   color: #d81b60;
-  cursor: pointer;
-}
+ }
 /* =============================== */
 /*          Fondo                  */
 /* =============================== */
@@ -55,7 +62,7 @@
   background-size: 100% 100%;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 610px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +77,7 @@
   background-size: 100% 100%;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 610px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -85,7 +92,7 @@
   background-size: 100% 100%;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 610px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -100,7 +107,7 @@
   background-size: 100% 100%;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 610px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -115,7 +122,7 @@
   background-size: 100% 100%;
   background-size: cover;
   width: 100%;
-  min-height: 450px;
+  min-height: 610px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,17 +130,18 @@
   gap: 1rem;
   margin: 0 0 50px;
 }
+
 .textosubtitulo {
   text-align: center;
   color: whitesmoke;
-  font: bold 50px Arial, Helvetica, sans-serif;
+  font: bold 70px "Nunito", sans-serif;
   text-shadow: 1px 4px rgba(0, 0, 0, 0.445);
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+/*-----Latest Posts----------------*/
 .news-block-horizontal-content {
   padding: 20px;
-  flex: 1;
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -174,21 +182,19 @@ p {
   text-decoration: none;
 }
 
-.news-block-horizontal-one {
-	display: flex;
-  justify-content: space-between;  
-	width: 100%;
-}
 .news-block-horizontal-img {
 	position: relative;
 	overflow: hidden;
 	display: inline-block;
-	width: 50%;
+	width: 90%;
 	margin-right: 20px;
 }
+
 .news-block-horizontal-img img {
 		transition: all 0.3s ease-in-out;
 }
+
+/*--------Categorias---------------*/
 .sidebar{
   background-color: #F8F9FA;
   padding: 30px;
@@ -207,17 +213,12 @@ p {
   padding: 0px;
   list-style: none;
 }
-.cat-list li a{
+.cat-list{
     position: relative;
     color: #84858a;
     font-size: 14px;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    margin-bottom: 1px;
-    padding: 15px 20px;
     background-color: #ffffff;
-  
+ 
     transition: all 0.3s ease-in-out;
     text-decoration: none;
   }
@@ -238,6 +239,7 @@ p {
   input[type="checkbox"]:checked{
     background-color: #d81b60;
   }
+  
 
 /* =============================== */
 /*       Media Queries Navbar      */
@@ -273,6 +275,66 @@ p {
   .text-carousel h1 {
     font-size: 1em;
   }
+  
+}
+/*---------Celulares---------------*/
+@media screen and (max-width: 1024px) {
+  .img-fuid {
+    width: 80px;
+    height: 50px;
+  }
+  .fondo_principal {
+    min-height: 400px;
+  }
+  .fondo_upcoming {
+    min-height: 400px;
+  }
+  .fondo_past {
+    min-height: 400px;
+  }
+  .fondo_contact {
+    min-height: 400px;
+  }
+  .fondo_stats {
+    min-height: 400px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .news-block-horizontal-img{
+    width: 250px;
+  }
+  .fondo_principal {
+    min-height: 300px;
+  }
+  .textosubtitulo{
+    font-size: 50px;
+  }
+}
+
+@media screen and (max-width: 414px) {
+
+  .img-fuid {
+    width: 100px;
+    height: 60px;
+  }
+  .news-block-horizontal-one{
+    flex-direction: column;
+    
+  }
+  .news-block-horizontal-img{
+    margin-left: 20px;
+  }
+  .fondo_principal {
+    min-height: 300px;
+  }
+  .textosubtitulo{
+    font-size: 40px;
+  }
+  .img-detail{
+    width: 300px;
+    height: 200px;
+  }
 }
 
 @media screen and (max-width: 280px) {
@@ -280,4 +342,48 @@ p {
     width: 75px;
     height: 30px;
   }
+  .news-block-horizontal-img{
+    margin-left: 10px;
+    width: 87%;
+  }
+  .button-social{
+    width: 5px;
+    height: 5px;
+    display: flex;
+  
+  }
+  .textosubtitulo{
+    font-size: 40px;
+  }
+  .img-detail{
+    width: 200px;
+    height: 100px;
+  }
 }
+
+
+/*Tablas*/
+table th  {
+  text-align: center; 
+}
+table td  {
+  text-align: center; 
+}
+.table-title h3{
+  font-size: 22px;
+  line-height: 24px;
+  position: relative;
+  padding: 0px 0px 20px 0px;
+
+}
+
+/*Detail Cinema*/
+.title-detail p{
+  text-align:justify;
+  line-height: 24px;
+  font-size: 14px;
+  color: #8a8a93;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
