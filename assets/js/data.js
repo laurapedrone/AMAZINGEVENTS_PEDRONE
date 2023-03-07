@@ -100,7 +100,7 @@ const data = {
       {
         _id: 9,
         "image":"https://i.postimg.cc/fyLqZY9K/10-K-for-life.jpg",
-        "name":"10K for life",
+        "name":"10K For Life",
         "date":"2021-03-01",
         "description":"Come and exercise, improve your health and lifestyle.",
         "category":"Race",
