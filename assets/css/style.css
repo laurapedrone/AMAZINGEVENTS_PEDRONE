@@ -245,7 +245,6 @@ input[type="checkbox"] {
   height: 25px;
   padding: 6px;
   /* background-color only for content */
-  background-clip: content-box;
   border: 1px solid #bbbbbb;
   background-color: #e7e6e7;
 }
@@ -407,4 +406,10 @@ table td {
   color: #8a8a93;
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+.img-detail {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
