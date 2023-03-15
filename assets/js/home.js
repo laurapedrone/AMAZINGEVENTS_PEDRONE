@@ -26,7 +26,7 @@ const mostrarCards = (arrayCards) => {
             <p>${datas.description}</p>
             </div>
             <div class="d-flex justify-content-between">
-              <h5>Price $${datas.price}</h5>
+              <h5>Price: <i class="fa fa-usd"></i> ${datas.price}</h5>
               <a style="color: #d81b60;" href="./details.html?id=${datas._id}" class="btn-style-1">Read More <i class="fa fa-chevron-right"></i></a>
             </div>
           </div>
