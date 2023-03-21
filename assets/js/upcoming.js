@@ -1,17 +1,31 @@
-let { currentDate } = data;
+const contenedorCardsEvents = document.getElementById("cardEvents");
+let events
+let currentDate
 
-let { events } = data;
+const URL = "https://mindhub-xj03.onrender.com/api/amazing";
+// const URL= "./assets/js/amazing.json";
+fetch(URL)
+.then(res=>res.json())
+.then(datos=> {
+  events=datos.events
+  currentDate = datos.currentDate
+  console.log(currentDate)
+  mostrarCards(events)
+  mostrarCategorias(events)
+  filtrarPorTexto(events, input.value)
+})
+.catch(error=>console.log("No se pudo realizar la carga de datos: ",error)) 
 
 const mostrarCards = (arrayCards) => {
-  const contenedorCardsEvents = document.getElementById("cardEvents");
   let cards = "";
   if (arrayCards.length == 0) {
     contenedorCardsEvents.innerHTML =
-      "<div><h4>No results were found!</h4></div>";
+    '<div class="noResult"><h4>No results were found!</h4></div>';
     return;
   }
   arrayCards.forEach((datas) => {
     if (currentDate < datas.date) {
+      console.log(currentDate)
       cards += `<div class="news-block-horizontal-one mb-20 d-flex justify-content-center p-3">
         <div class="news-block-horizontal-img col-lg-6 col-sm-12 col-md-6">
           <a href="./details.html?id=${datas._id}">
@@ -37,7 +51,6 @@ const mostrarCards = (arrayCards) => {
   });
   contenedorCardsEvents.innerHTML = cards;
 };
-mostrarCards(events);
 
 /*-------------------------------Filtrar por Categorias-----------------------------------*/
 const contenedorCategory = document.getElementById("category-total");
@@ -62,8 +75,8 @@ const mostrarCategorias = (arrayCards) => {
   });
   contenedorCategory.innerHTML = categorias;
 };
-mostrarCategorias(events);
 
+/*-------------------------------Filtrar por Categorias-----------------------------------*/
 function filtrarPorCategorias(arrayCards) {
   let checkboxes = document.querySelectorAll("input[type='checkbox']"); //input[type='checkbox'] es el selector de atributo en CSS
   let arrayChecks = Array.from(checkboxes); //Tengo que pasar el nodeList=checkboxes a Array para poder filtrarlo
@@ -89,7 +102,6 @@ function filtradosAddEVentListener(){
   mostrarCards(arrayFiltrado2);
 }
 /* -----------------------Filtror por texto---------------------------- */
-
 const input = document.querySelector("input");
 
 input.addEventListener("input",filtradosAddEVentListener)

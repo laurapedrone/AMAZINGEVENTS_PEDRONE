@@ -403,6 +403,8 @@ table td {
   text-align: center;
 }
 .table-title h3 {
+  text-align: center;
+  color: #d81b60;
   font-size: 22px;
   line-height: 24px;
   position: relative;
@@ -428,4 +430,9 @@ table td {
 .meta .p-meta{
   font-size: 15px;
   color: #d81b60;
+}
+
+.noResult h4{
+  color: #d81b60;
+  text-align: center;
 }
