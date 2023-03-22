@@ -8,9 +8,10 @@ const obtenerDatos = async () => {
     const respuesta = await fetch(URL);
     let datos = await respuesta.json();
     events = await datos.events;
+
     mostrarCards(events);
-    mostrarCategorias(events);
     filtrarPorTexto(events, input.value);
+    mostrarCategorias(events);
   } catch (error) {
     console.log("No se pudo realizar la carga de datos: ",error)
   }
@@ -56,11 +57,7 @@ const mostrarCategorias = (arrayCards) => {
   let categorias = "";
   let arrayNoRepetidas = arrayCards.map((ele) => ele.category); //Mapeo el array por categoria
   let categoria = new Set(
-    arrayNoRepetidas.sort((a, b) => {
-      if (a > b) return 1;
-      if (a < b) return -1;
-      return 0;
-    })
+    arrayNoRepetidas.sort()
   ); //El Set me va a descartar los elementos repetidos y con sort me ordena alfabeticamente
   categoria.forEach((elemento) => {
     categorias += `<li>

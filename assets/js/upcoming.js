@@ -1,6 +1,7 @@
 const contenedorCardsEvents = document.getElementById("cardEvents");
 let events
 let currentDate
+let upcoming
 
 const URL = "https://mindhub-xj03.onrender.com/api/amazing";
 // const URL= "./assets/js/amazing.json";
@@ -9,23 +10,21 @@ fetch(URL)
 .then(datos=> {
   events=datos.events
   currentDate = datos.currentDate
-  console.log(currentDate)
-  mostrarCards(events)
+  upcoming = datos.events.filter(fecha =>(currentDate < fecha.date) )
+  
+  mostrarCards(upcoming)
   mostrarCategorias(events)
-  filtrarPorTexto(events, input.value)
 })
 .catch(error=>console.log("No se pudo realizar la carga de datos: ",error)) 
 
 const mostrarCards = (arrayCards) => {
-  let cards = "";
-  if (arrayCards.length == 0) {
+  if (arrayCards.length === 0) {
     contenedorCardsEvents.innerHTML =
     '<div class="noResult"><h4>No results were found!</h4></div>';
     return;
   }
+  let cards = "";
   arrayCards.forEach((datas) => {
-    if (currentDate < datas.date) {
-      console.log(currentDate)
       cards += `<div class="news-block-horizontal-one mb-20 d-flex justify-content-center p-3">
         <div class="news-block-horizontal-img col-lg-6 col-sm-12 col-md-6">
           <a href="./details.html?id=${datas._id}">
@@ -47,7 +46,6 @@ const mostrarCards = (arrayCards) => {
           </div>
         </div>
       </div>`;
-    }
   });
   contenedorCardsEvents.innerHTML = cards;
 };
@@ -59,11 +57,7 @@ const mostrarCategorias = (arrayCards) => {
   let categorias = "";
   let arrayNoRepetidas = arrayCards.map((ele) => ele.category); //Mapeo el array por categoria
   let categoria = new Set(
-    arrayNoRepetidas.sort((a, b) => {
-      if (a > b) return 1;
-      if (a < b) return -1;
-      return 0;
-    })
+    arrayNoRepetidas.sort()
   ); //El Set me va a descartar los elementos repetidos y con sort me ordena alfabeticamente
   categoria.forEach((elemento) => {
     categorias += `<li>
@@ -97,8 +91,9 @@ function filtrarPorCategorias(arrayCards) {
 contenedorCategory.addEventListener("change",filtradosAddEVentListener);
 
 function filtradosAddEVentListener(){
-  let arrayFiltrado1 = filtrarPorTexto(events, input.value);
-  let arrayFiltrado2 = filtrarPorCategorias(arrayFiltrado1);
+  let arrayFiltrado1 = filtrarPorCategorias(upcoming);
+  let arrayFiltrado2 = filtrarPorTexto(arrayFiltrado1, input.value);
+  
   mostrarCards(arrayFiltrado2);
 }
 /* -----------------------Filtror por texto---------------------------- */
