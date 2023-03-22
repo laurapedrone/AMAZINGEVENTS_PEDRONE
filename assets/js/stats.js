@@ -2,13 +2,12 @@ const table1 = document.getElementById("table1");
 const table2 = document.getElementById("table2");
 const table3 = document.getElementById("table3");
 
-const URL = "https://mindhub-xj03.onrender.com/api/amazing";
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
 // const URL= "./assets/js/amazing.json";
-const obtenerDatos = async () => {
-  try {
-    const respuesta = await fetch(URL);
-    let datos = await respuesta.json();
-    let events = await datos.events;
+fetch(url)
+.then(respuesta => respuesta.json())
+.then(datos => {
+    let events = datos.events;
     
     //1° Filtro los eventos por ASISTENCIA para eventos pasados y por ESTIMATIVO para eventos siguientes
     let past = events.filter((event) => event.assistance);
@@ -19,21 +18,22 @@ const obtenerDatos = async () => {
       event.percentageAssistance = (event.assistance / event.capacity) * 100;
       event.revenue = parseInt(event.price) * parseInt(event.assistance);
     });
-
+    console.log(past)
     upcoming.map((event) => {
       event.percentageAssistance = (event.estimate / event.capacity) * 100;
       event.revenue = parseInt(event.price) * parseInt(event.estimate);
     });
 
     //------------------Evento con mayor capacidad-------------------
-    let capacityEvents = [...events].sort((a, b) => a.capacity - b.capacity);
+    let capacityEvents = events.sort((a, b) => a.capacity - b.capacity);
     let maxCapacityEvents = capacityEvents[capacityEvents.length - 1];
     // console.log(maxCapacityEvents);
 
     //-----------------Max y Min Porcentaje de asistencia(acá utilizo el array del pasado, por la asistencia)---------------
-    let percentageOfAttendance = [...past].sort(
+    let percentageOfAttendance = past.sort(
       (a, b) => a.percentageAssistance - b.percentageAssistance
     );
+ 
     let minPercentageOfAttendance = percentageOfAttendance[0];
     let maxPercentageOfAttendance = percentageOfAttendance[percentageOfAttendance.length - 1];
     // console.log(minPercentageOfAttendance);
@@ -47,7 +47,7 @@ const obtenerDatos = async () => {
                                 //.toLocaleString('de-DE') = Aleman utiliza comas como separador decimal y puntos miles
     
     //--------------------Tabla Upcoming---------------------------
-    let eventCategoryUpcoming = [...new Set(upcoming.map((event) => event.category)),];
+    let eventCategoryUpcoming = new Set(upcoming.map((event) => event.category));
     // console.log(eventCategoryUpcoming);
 
     eventCategoryUpcoming.forEach((category) => {
@@ -69,7 +69,7 @@ const obtenerDatos = async () => {
     });
 
     //-------------------------Tabla Past---------------------------
-    let eventCategoryPast = [...new Set(past.map((event) => event.category))];
+    let eventCategoryPast = new Set(past.map((event) => event.category));
     // console.log(eventCategoryPast);
 
     eventCategoryPast.forEach((category) => {
@@ -89,8 +89,7 @@ const obtenerDatos = async () => {
                               <td>${((assistance / capacity) * 100).toFixed(2)}%</td>
                             </tr>`;
     });
-  } catch (error) {
-    console.log("No se pudo realizar la carga de datos: ", error);
-  }
-};
-obtenerDatos();
+  })
+.catch(error=>console.log("No se pudo realizar la carga de datos: ",error)) 
+
+//Ver [...array] = https://developer.mozilla.org/en-US/docs/web/javascript/reference/operators/spread_syntax

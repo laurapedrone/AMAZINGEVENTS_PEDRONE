@@ -1,8 +1,8 @@
 const containerEvents = document.getElementById("containerEvents")
 
-const URL = "https://mindhub-xj03.onrender.com/api/amazing";
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
 // const URL= "./assets/js/amazing.json";
-fetch(URL)
+fetch(url)
 .then(res=>res.json())
 .then(datos=> {
   let events=datos.events

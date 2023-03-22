@@ -1,11 +1,11 @@
 const contenedorCardsEvents = document.getElementById("cardEvents");
 let events
 
-const URL = "https://mindhub-xj03.onrender.com/api/amazing";
+const url = "https://mindhub-xj03.onrender.com/api/amazing";
 // const URL= "./assets/js/amazing.json";
 const obtenerDatos = async () => {
   try {
-    const respuesta = await fetch(URL);
+    const respuesta = await fetch(url);
     let datos = await respuesta.json();
     events = await datos.events;
 
