@@ -1,6 +1,4 @@
 const contenedorCardsEvents = document.getElementById("cardEvents");
-let events
-let currentDate
 let upcoming
 
 const URL = "https://mindhub-xj03.onrender.com/api/amazing";
@@ -8,10 +6,9 @@ const URL = "https://mindhub-xj03.onrender.com/api/amazing";
 fetch(URL)
 .then(res=>res.json())
 .then(datos=> {
-  events=datos.events
-  currentDate = datos.currentDate
-  upcoming = datos.events.filter(fecha =>(currentDate < fecha.date) )
-  
+  let events=datos.events
+  let currentDate = datos.currentDate
+  upcoming = datos.events.filter(fecha =>(currentDate < fecha.date))
   mostrarCards(upcoming)
   mostrarCategorias(events)
 })

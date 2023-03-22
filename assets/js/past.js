@@ -1,16 +1,15 @@
 const contenedorCardsEvents = document.getElementById("cardEvents");
-let events
-let currentDate
+let past
 
 const URL = "https://mindhub-xj03.onrender.com/api/amazing";
 // const URL= "./assets/js/amazing.json";
 fetch(URL)
 .then(res=>res.json())
 .then(datos=> {
-  events=datos.events
-  currentDate = datos.currentDate
-  upcoming = datos.events.filter(fecha =>(currentDate < fecha.date) )
-  mostrarCards(upcoming)
+  let events=datos.events
+  let currentDate = datos.currentDate
+  past = datos.events.filter(fecha =>(currentDate < fecha.date) )
+  mostrarCards(past)
   mostrarCategorias(events)
 })
 .catch(error=>console.log("No se pudo realizar la carga de datos: ",error)) 
@@ -88,7 +87,7 @@ function filtrarPorCategorias(arrayCards) {
 contenedorCategory.addEventListener("change",filtradosAddEVentListener);
 
 function filtradosAddEVentListener(){
-  let arrayFiltrado1 = filtrarPorTexto(events, input.value);
+  let arrayFiltrado1 = filtrarPorTexto(past, input.value);
   let arrayFiltrado2 = filtrarPorCategorias(arrayFiltrado1);
   mostrarCards(arrayFiltrado2);
 }
