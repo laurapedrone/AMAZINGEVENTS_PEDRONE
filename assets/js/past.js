@@ -8,7 +8,7 @@ fetch(url)
 .then(datos=> {
   let events=datos.events
   let currentDate = datos.currentDate
-  past = datos.events.filter(fecha =>(currentDate < fecha.date) )
+  past = datos.events.filter(fecha =>(currentDate > fecha.date) )
   mostrarCards(past)
   mostrarCategorias(events)
 })
