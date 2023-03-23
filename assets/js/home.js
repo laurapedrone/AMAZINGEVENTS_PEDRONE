@@ -2,7 +2,7 @@ const contenedorCardsEvents = document.getElementById("cardEvents");
 let events
 
 const url = "https://mindhub-xj03.onrender.com/api/amazing";
-// const URL= "./assets/js/amazing.json";
+// const url= "./assets/js/amazing.json";
 const obtenerDatos = async () => {
   try {
     const respuesta = await fetch(url);

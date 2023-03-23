@@ -2,7 +2,7 @@ const contenedorCardsEvents = document.getElementById("cardEvents");
 let past
 
 const url = "https://mindhub-xj03.onrender.com/api/amazing";
-// const URL= "./assets/js/amazing.json";
+// const url= "./assets/js/amazing.json";
 fetch(url)
 .then(res=>res.json())
 .then(datos=> {

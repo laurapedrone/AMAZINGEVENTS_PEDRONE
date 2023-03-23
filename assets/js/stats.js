@@ -3,7 +3,7 @@ const table2 = document.getElementById("table2");
 const table3 = document.getElementById("table3");
 
 const url = "https://mindhub-xj03.onrender.com/api/amazing";
-// const URL= "./assets/js/amazing.json";
+// const url= "./assets/js/amazing.json";
 fetch(url)
 .then(respuesta => respuesta.json())
 .then(datos => {
