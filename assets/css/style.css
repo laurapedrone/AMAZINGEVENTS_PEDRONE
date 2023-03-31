@@ -14,7 +14,6 @@ main {
 /*              Navbar             */
 /* =============================== */
 #site-navbar {
-  transition: all 0.42s ease;
   border-bottom: 7px solid #d81b60;
   border-radius: 0 0 30px 30px;
 }
@@ -256,10 +255,6 @@ input[type="checkbox"]:checked {
 /* =============================== */
 /*       Media Queries Navbar      */
 /* =============================== */
-
-/* --------- From Tablet --------- */
-
-
 
 /* -------- From small PC -------- */
 
